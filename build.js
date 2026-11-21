@@ -13,15 +13,18 @@ if (!m) throw new Error("SITE_VERSION not found in data.js");
 const version = m[1];
 
 let html = read("index.html");
-const swaps = [
-  ['<link rel="stylesheet" href="styles.css">', "<style>\n" + read("styles.css") + "\n</style>"],
-  ['<script src="data.js"></script>', "<script>\n" + data + "\n</script>"],
-  ['<script src="app.js"></script>', "<script>\n" + read("app.js") + "\n</script>"]
-];
-for (const [from, to] of swaps) {
-  if (!html.includes(from)) throw new Error("Not found in index.html: " + from);
-  html = html.replace(from, () => to);
-}
+const css = '<link rel="stylesheet" href="styles.css">';
+if (!html.includes(css)) throw new Error("Not found in index.html: " + css);
+html = html.replace(css, () => "<style>\n" + read("styles.css") + "\n</style>");
+
+// Inline every local <script src="..."> (data.js, lang/*.js, app.js), keeping their order
+let count = 0;
+html = html.replace(/<script src="([^":]+)"><\/script>/g, (_, src) => {
+  count++;
+  return "<script>\n" + read(src).replace(/<\/script/gi, "<\\/script") + "\n</script>";
+});
+if (count < 3) throw new Error("Expected data.js, lang files and app.js, found " + count + " scripts");
+if (/<script src="[^":]+">/.test(html)) throw new Error("A local script was not inlined");
 
 fs.mkdirSync(path.join(dir, "dist"), { recursive: true });
 const out = path.join(dir, "dist", `FormosaRenewTour-v${version}.html`);

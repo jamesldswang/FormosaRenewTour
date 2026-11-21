@@ -186,3 +186,35 @@ form .btn:hover { background: #b38d3a; border-color: #b38d3a; }
   .cards { grid-template-columns: 1fr; }
   .section { padding: 60px 0; }
 }
+
+/* LANGUAGE SWITCHER */
+.nav-right { display: flex; align-items: center; gap: 18px; }
+.lang-switch { display: flex; align-items: center; gap: 4px; font-size: .9rem; cursor: pointer; }
+.lang-switch select { border: 1px solid var(--line); background: #fff; border-radius: 999px; padding: 6px 10px; font: inherit; font-size: .85rem; color: var(--ink); cursor: pointer; }
+
+/* CHINESE TYPOGRAPHY — Playfair/Inter have no CJK glyphs, so use system CJK fonts */
+html:lang(zh-Hant) body { font-family: Inter, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif; }
+html:lang(zh-Hans) body { font-family: Inter, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif; }
+html:lang(zh-Hant) :is(h1, h2, h3), html:lang(zh-Hans) :is(h1, h2, h3) { font-family: inherit; font-weight: 700; letter-spacing: .02em; }
+html:lang(zh-Hant) .eyebrow, html:lang(zh-Hans) .eyebrow { letter-spacing: .1em; }
+html:lang(zh-Hant) .lead, html:lang(zh-Hans) .lead,
+html:lang(zh-Hant) p, html:lang(zh-Hans) p { line-height: 1.8; }
+
+@media (max-width: 1020px) {
+  .nav-right { gap: 10px; }
+}
+
+/* Small phones: keep logo + language + menu on one line */
+@media (max-width: 520px) {
+  .logo { font-size: 1.12rem; }
+  .nav-right { gap: 6px; }
+  .lang-switch > span { display: none; }
+  .lang-switch select { padding: 5px 6px; font-size: .8rem; max-width: 96px; }
+  .menu-btn { font-size: 1.4rem; padding: 0 2px; }
+}
+
+/* Long <option> text must not widen the form grid on phones */
+form, .row { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 1021px) { .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
+input, select, textarea { min-width: 0; width: 100%; }
+.filters select, .lang-switch select { width: auto; }

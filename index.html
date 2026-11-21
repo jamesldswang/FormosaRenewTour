@@ -10,20 +10,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <!-- Text is filled from lang/*.js by data-i18n keys (data-i18n-html allows <br>). -->
   <header class="nav">
     <div class="container nav-inner">
       <a href="#top" class="logo">Formosa<span>Renew</span>Tour</a>
-      <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
-      <nav class="nav-links">
-        <a href="#packages">Tours</a>
-        <a href="#destinations">Places To Go</a>
-        <a href="#why">Why Taiwan</a>
-        <a href="#aesthetics">Aesthetics</a>
-        <a href="#hospitals">Hospitals</a>
-        <a href="#how">How It Works</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact" class="btn btn-small">Free Consultation</a>
-      </nav>
+      <div class="nav-right">
+        <nav class="nav-links">
+          <a href="#packages" data-i18n="nav.tours"></a>
+          <a href="#destinations" data-i18n="nav.places"></a>
+          <a href="#why" data-i18n="nav.why"></a>
+          <a href="#aesthetics" data-i18n="nav.aesthetics"></a>
+          <a href="#hospitals" data-i18n="nav.hospitals"></a>
+          <a href="#how" data-i18n="nav.how"></a>
+          <a href="#faq" data-i18n="nav.faq"></a>
+          <a href="#contact" class="btn btn-small" data-i18n="nav.cta"></a>
+        </nav>
+        <label class="lang-switch" title="Language / 語言 / 语言">
+          <span aria-hidden="true">🌐</span>
+          <select id="lang-select" aria-label="Language"></select>
+        </label>
+        <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+      </div>
     </div>
   </header>
 
@@ -31,17 +38,17 @@
     <!-- HERO -->
     <section class="hero">
       <div class="container hero-inner">
-        <p class="eyebrow">Medical & Aesthetic Travel · Taiwan</p>
-        <h1>Heal, Glow &amp; Explore<br>the Beautiful Island</h1>
-        <p class="lead">Private Taiwan tours — classic sightseeing, food, nature and culture — with the option to add a health check, aesthetic treatment or specialist care at Taiwan's world-class hospitals and clinics.</p>
+        <p class="eyebrow" data-i18n="hero.eyebrow"></p>
+        <h1 data-i18n-html="hero.title"></h1>
+        <p class="lead" data-i18n="hero.lead"></p>
         <div class="hero-cta">
-          <a href="#contact" class="btn">Start Planning Your Journey</a>
-          <a href="#packages" class="btn btn-ghost">View Packages</a>
+          <a href="#contact" class="btn" data-i18n="hero.cta1"></a>
+          <a href="#packages" class="btn btn-ghost" data-i18n="hero.cta2"></a>
         </div>
         <ul class="hero-badges">
-          <li><strong>17</strong> JCI-accredited institutions</li>
-          <li><strong>90+</strong> hospitals serving international patients</li>
-          <li><strong>Up to 80%</strong> savings vs. the US</li>
+          <li><strong data-i18n="hero.b1n"></strong> <span data-i18n="hero.b1"></span></li>
+          <li><strong data-i18n="hero.b2n"></strong> <span data-i18n="hero.b2"></span></li>
+          <li><strong data-i18n="hero.b3n"></strong> <span data-i18n="hero.b3"></span></li>
         </ul>
       </div>
     </section>
@@ -49,15 +56,15 @@
     <!-- PACKAGES -->
     <section id="packages" class="section">
       <div class="container">
-        <p class="eyebrow">Private Tours</p>
-        <h2>Signature Journeys</h2>
-        <p class="section-lead">Travel-only tours or tour + treatment — every journey is private and tailored. Treatment plans are confirmed by the hospital or clinic after reviewing your records.</p>
+        <p class="eyebrow" data-i18n="pkg.eyebrow"></p>
+        <h2 data-i18n="pkg.title"></h2>
+        <p class="section-lead" data-i18n="pkg.lead"></p>
         <div class="filters" id="pkg-filters">
-          <button class="chip active" data-tag="All">All</button>
-          <button class="chip" data-tag="Travel">Travel</button>
-          <button class="chip" data-tag="Medical">Medical</button>
-          <button class="chip" data-tag="Aesthetic">Aesthetic</button>
-          <button class="chip" data-tag="Dental">Dental</button>
+          <button class="chip active" data-tag="All" data-i18n="filter.all"></button>
+          <button class="chip" data-tag="Travel" data-i18n="tag.Travel"></button>
+          <button class="chip" data-tag="Medical" data-i18n="tag.Medical"></button>
+          <button class="chip" data-tag="Aesthetic" data-i18n="tag.Aesthetic"></button>
+          <button class="chip" data-tag="Dental" data-i18n="tag.Dental"></button>
         </div>
         <div class="grid cards" id="pkg-grid"></div>
       </div>
@@ -66,14 +73,14 @@
     <!-- DESTINATIONS -->
     <section id="destinations" class="section alt">
       <div class="container">
-        <p class="eyebrow">Places To Go</p>
-        <h2>Explore the Beautiful Island</h2>
-        <p class="section-lead">Each destination is rated by travel pace, so we can match sightseeing to your treatment schedule — active trips before, easy trips during recovery.</p>
+        <p class="eyebrow" data-i18n="dest.eyebrow"></p>
+        <h2 data-i18n="dest.title"></h2>
+        <p class="section-lead" data-i18n="dest.lead"></p>
         <div class="filters" id="dest-filters">
-          <button class="chip active" data-pace="All">All</button>
-          <button class="chip" data-pace="Easy">🟢 Easy — recovery-friendly</button>
-          <button class="chip" data-pace="Moderate">🟡 Moderate</button>
-          <button class="chip" data-pace="Active">🔴 Active — before treatment</button>
+          <button class="chip active" data-pace="All" data-i18n="filter.all"></button>
+          <button class="chip" data-pace="Easy" data-i18n="paceChip.Easy"></button>
+          <button class="chip" data-pace="Moderate" data-i18n="paceChip.Moderate"></button>
+          <button class="chip" data-pace="Active" data-i18n="paceChip.Active"></button>
         </div>
         <div class="grid dest" id="dest-grid"></div>
       </div>
@@ -82,8 +89,8 @@
     <!-- TRAVEL ESSENTIALS -->
     <section id="essentials" class="section">
       <div class="container">
-        <p class="eyebrow">Travel Essentials</p>
-        <h2>Good to Know Before You Go</h2>
+        <p class="eyebrow" data-i18n="ess.eyebrow"></p>
+        <h2 data-i18n="ess.title"></h2>
         <div class="grid ess" id="ess-grid"></div>
       </div>
     </section>
@@ -91,28 +98,28 @@
     <!-- WHY TAIWAN -->
     <section id="why" class="section alt">
       <div class="container">
-        <p class="eyebrow">Why Taiwan</p>
-        <h2>World-Class Care, Fair Prices</h2>
-        <p class="section-lead">Taiwan regulates self-pay prices for international patients, so you get a transparent quote — not a tourist price.</p>
+        <p class="eyebrow" data-i18n="why.eyebrow"></p>
+        <h2 data-i18n="why.title"></h2>
+        <p class="section-lead" data-i18n="why.lead"></p>
         <div class="grid stats" id="stats-grid"></div>
 
-        <h3 class="sub">Reference Self-Pay Prices</h3>
+        <h3 class="sub" data-i18n="why.sub"></h3>
         <div class="table-wrap">
           <table class="price-table">
-            <thead><tr><th>Treatment</th><th>Taiwan (TWD)</th><th>USD</th><th>Notes</th></tr></thead>
+            <thead><tr><th data-i18n="th.item"></th><th data-i18n="th.taiwan"></th><th data-i18n="th.usd"></th><th data-i18n="th.note"></th></tr></thead>
             <tbody id="price-body"></tbody>
           </table>
         </div>
-        <p class="fineprint">Figures are hospital-published reference prices for illustration only (US$1 ≈ NT$32). Your final price depends on your condition and is quoted by the hospital's International Medical Center.</p>
+        <p class="fineprint" data-i18n="why.fine"></p>
       </div>
     </section>
 
     <!-- AESTHETICS -->
     <section id="aesthetics" class="section">
       <div class="container">
-        <p class="eyebrow">Medical Aesthetics</p>
-        <h2>Plan Your Treatment Around Your Trip</h2>
-        <p class="section-lead">Downtime decides your itinerary. Here is how we schedule sightseeing around common treatments. Your doctor always has the final say.</p>
+        <p class="eyebrow" data-i18n="aes.eyebrow"></p>
+        <h2 data-i18n="aes.title"></h2>
+        <p class="section-lead" data-i18n="aes.lead"></p>
         <div class="grid aes" id="aes-grid"></div>
       </div>
     </section>
@@ -120,35 +127,32 @@
     <!-- HOSPITALS -->
     <section id="hospitals" class="section alt">
       <div class="container">
-        <p class="eyebrow">Partner Network</p>
-        <h2>Hospitals with International Medical Centers</h2>
+        <p class="eyebrow" data-i18n="hosp.eyebrow"></p>
+        <h2 data-i18n="hosp.title"></h2>
         <div class="filters">
-          <select id="h-region" aria-label="Filter by region">
-            <option value="All">All regions</option>
-            <option>North</option><option>Central</option><option>South</option>
-          </select>
-          <select id="h-tag" aria-label="Filter by specialty"></select>
+          <select id="h-region" aria-label="Region"></select>
+          <select id="h-tag" aria-label="Specialty"></select>
         </div>
         <div class="grid hosp" id="hosp-grid"></div>
-        <p class="fineprint">List shows hospitals that provide international patient services; specialties are highlights only. Accreditation and services should be confirmed with each hospital.</p>
+        <p class="fineprint" data-i18n="hosp.fine"></p>
       </div>
     </section>
 
     <!-- HOW IT WORKS -->
     <section id="how" class="section">
       <div class="container">
-        <p class="eyebrow">How It Works</p>
-        <h2>Five Simple Steps</h2>
+        <p class="eyebrow" data-i18n="how.eyebrow"></p>
+        <h2 data-i18n="how.title"></h2>
         <ol class="steps">
-          <li><span>1</span><h4>Free consultation</h4><p>Tell us your goals, medical history and travel dates.</p></li>
-          <li><span>2</span><h4>Hospital review</h4><p>We refer you to the right International Medical Center. They review your records and send a quote.</p></li>
-          <li><span>3</span><h4>Visa & planning</h4><p>The hospital issues an invitation letter if needed. We design your private itinerary around treatment.</p></li>
-          <li><span>4</span><h4>Treatment & travel</h4><p>Airport pickup, private driver, interpreter, recovery hotel and guided tours.</p></li>
-          <li><span>5</span><h4>Aftercare</h4><p>Follow-up checks before you fly, and records to share with your home doctor.</p></li>
+          <li><span>1</span><h4 data-i18n="how.s1t"></h4><p data-i18n="how.s1"></p></li>
+          <li><span>2</span><h4 data-i18n="how.s2t"></h4><p data-i18n="how.s2"></p></li>
+          <li><span>3</span><h4 data-i18n="how.s3t"></h4><p data-i18n="how.s3"></p></li>
+          <li><span>4</span><h4 data-i18n="how.s4t"></h4><p data-i18n="how.s4"></p></li>
+          <li><span>5</span><h4 data-i18n="how.s5t"></h4><p data-i18n="how.s5"></p></li>
         </ol>
         <div class="roles">
-          <div><h4>🏥 The hospital handles</h4><p>Medical assessment, appointments, treatment, pricing, medical visa letter.</p></div>
-          <div><h4>🧳 FormosaRenewTour handles</h4><p>Flights, hotels, transport, interpreters, sightseeing, companion tours.</p></div>
+          <div><h4 data-i18n="how.r1t"></h4><p data-i18n="how.r1"></p></div>
+          <div><h4 data-i18n="how.r2t"></h4><p data-i18n="how.r2"></p></div>
         </div>
       </div>
     </section>
@@ -156,8 +160,8 @@
     <!-- FAQ -->
     <section id="faq" class="section alt">
       <div class="container narrow">
-        <p class="eyebrow">FAQ</p>
-        <h2>Questions We Hear Often</h2>
+        <p class="eyebrow" data-i18n="faq.eyebrow"></p>
+        <h2 data-i18n="faq.title"></h2>
         <div id="faq-list"></div>
       </div>
     </section>
@@ -165,26 +169,26 @@
     <!-- CONTACT -->
     <section id="contact" class="section contact">
       <div class="container narrow">
-        <p class="eyebrow">Free Consultation</p>
-        <h2>Start Planning Your Journey</h2>
-        <p class="section-lead">We reply within one business day.</p>
+        <p class="eyebrow" data-i18n="contact.eyebrow"></p>
+        <h2 data-i18n="contact.title"></h2>
+        <p class="section-lead" data-i18n="contact.lead"></p>
         <form id="contact-form">
           <div class="row">
-            <label>Name<input name="name" required></label>
-            <label>Email<input type="email" name="email" required></label>
+            <label><span data-i18n="form.name"></span><input name="name" required></label>
+            <label><span data-i18n="form.email"></span><input type="email" name="email" required></label>
           </div>
           <div class="row">
-            <label>Country<input name="country"></label>
-            <label>Interested in
+            <label><span data-i18n="form.country"></span><input name="country"></label>
+            <label><span data-i18n="form.interest"></span>
               <select name="interest" id="interest"></select>
             </label>
           </div>
           <div class="row">
-            <label>Preferred travel month<input type="month" name="month"></label>
-            <label>Travelers<input type="number" name="travelers" min="1" value="1"></label>
+            <label><span data-i18n="form.month"></span><input type="month" name="month"></label>
+            <label><span data-i18n="form.travelers"></span><input type="number" name="travelers" min="1" value="1"></label>
           </div>
-          <label>Tell us about your goals<textarea name="message" rows="4"></textarea></label>
-          <button class="btn" type="submit">Send Enquiry</button>
+          <label><span data-i18n="form.message"></span><textarea name="message" rows="4"></textarea></label>
+          <button class="btn" type="submit" data-i18n="form.submit"></button>
           <p class="form-note" id="form-note"></p>
         </form>
       </div>
@@ -195,25 +199,32 @@
     <div class="container footer-inner">
       <div>
         <div class="logo">Formosa<span>Renew</span>Tour</div>
-        <p>Medical & aesthetic travel in Taiwan.</p>
+        <p data-i18n="footer.tagline"></p>
       </div>
       <div>
-        <h5>Explore</h5>
-        <a href="#packages">Tours</a><a href="#destinations">Places To Go</a><a href="#essentials">Travel Essentials</a><a href="#hospitals">Hospitals</a><a href="#faq">FAQ</a>
+        <h5 data-i18n="footer.explore"></h5>
+        <a href="#packages" data-i18n="nav.tours"></a>
+        <a href="#destinations" data-i18n="nav.places"></a>
+        <a href="#essentials" data-i18n="nav.essentials"></a>
+        <a href="#hospitals" data-i18n="nav.hospitals"></a>
+        <a href="#faq" data-i18n="nav.faq"></a>
       </div>
       <div>
-        <h5>Official resources</h5>
-        <a href="https://www.medicaltravel.org.tw" target="_blank" rel="noopener">Taiwan Medical Travel (MOHW)</a>
-        <a href="https://www.taiwan.net.tw" target="_blank" rel="noopener">Taiwan Tourism Administration</a>
-        <a href="https://www.boca.gov.tw" target="_blank" rel="noopener">Bureau of Consular Affairs (Visas)</a>
+        <h5 data-i18n="footer.official"></h5>
+        <a href="https://www.medicaltravel.org.tw" target="_blank" rel="noopener" data-i18n="footer.mohw"></a>
+        <a href="https://www.taiwan.net.tw" target="_blank" rel="noopener" data-i18n="footer.tourism"></a>
+        <a href="https://www.boca.gov.tw" target="_blank" rel="noopener" data-i18n="footer.boca"></a>
       </div>
     </div>
     <div class="container disclaimer">
-      <p>FormosaRenewTour is a travel service. We do not provide medical advice or treatment; all medical services are provided by licensed hospitals and clinics in Taiwan. © <span id="year"></span> FormosaRenewTour · <span id="version"></span></p>
+      <p><span data-i18n="footer.disclaimer"></span> © <span id="year"></span> FormosaRenewTour · <span id="version"></span></p>
     </div>
   </footer>
 
   <script src="data.js"></script>
+  <script src="lang/en.js"></script>
+  <script src="lang/zh-Hant.js"></script>
+  <script src="lang/zh-Hans.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
