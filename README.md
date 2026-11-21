@@ -2,7 +2,7 @@
 
 外國旅客來台「旅遊 + 醫療／醫美」網站（英文／繁體中文／簡體中文）。純靜態網頁，不需要伺服器。
 
-**目前版本：v1.1.0**　·　語言：English／繁體中文／简体中文（版本紀錄見 [CHANGELOG.md](CHANGELOG.md)）
+**目前版本：v1.2.0**　·　語言：English／繁體中文／简体中文（版本紀錄見 [CHANGELOG.md](CHANGELOG.md)）
 
 ## 網站內容
 | 區塊 | 說明 |
@@ -19,6 +19,7 @@
 ```
 index.html     頁面結構
 styles.css     樣式（玉綠＋金色主題，支援手機）
+assets/        Logo（07 旅程羅盤）：logo-icon.svg 圖示、logo-full.svg 橫式完整版、PNG
 data.js        版本號 SITE_VERSION、語言清單
 lang/en.js       英文：介面文字 + 所有內容   ← 改內容改這裡
 lang/zh-Hant.js  繁體中文                    ← 改內容改這裡

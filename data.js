@@ -1,5 +1,5 @@
 // Site version — single source of truth. Bump this (and CHANGELOG.md) for each release.
-const SITE_VERSION = "1.1.0";
+const SITE_VERSION = "1.2.0";
 
 // Language registry. Each file in lang/ adds itself: LANGS.en = {...}, LANGS["zh-Hant"] = {...}
 // To add a language: create lang/<code>.js (copy en.js), add a <script> tag in index.html,

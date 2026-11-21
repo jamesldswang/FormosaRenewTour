@@ -26,6 +26,16 @@ html = html.replace(/<script src="([^":]+)"><\/script>/g, (_, src) => {
 if (count < 3) throw new Error("Expected data.js, lang files and app.js, found " + count + " scripts");
 if (/<script src="[^":]+">/.test(html)) throw new Error("A local script was not inlined");
 
+// Embed local images (logo, favicon) as data URIs so the single file has no missing pictures
+const MIME = { ".svg": "image/svg+xml", ".png": "image/png", ".jpg": "image/jpeg", ".jpeg": "image/jpeg", ".webp": "image/webp" };
+html = html.replace(/(src|href)="(assets\/[^"]+)"/g, (_, attr, file) => {
+  const mime = MIME[path.extname(file).toLowerCase()];
+  if (!mime) throw new Error("Unknown image type: " + file);
+  const b64 = fs.readFileSync(path.join(dir, file)).toString("base64");
+  return `${attr}="data:${mime};base64,${b64}"`;
+});
+if (/="assets\//.test(html)) throw new Error("An asset was not embedded");
+
 fs.mkdirSync(path.join(dir, "dist"), { recursive: true });
 const out = path.join(dir, "dist", `FormosaRenewTour-v${version}.html`);
 fs.writeFileSync(out, html);

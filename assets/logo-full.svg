@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="200" viewBox="0 0 720 200">
+<g transform="translate(20,20)"><circle cx="80" cy="80" r="72" fill="none" stroke="#0f5c55" stroke-width="4"/>
+      <circle cx="80" cy="80" r="62" fill="none" stroke="#c9a24b" stroke-width="1.5" stroke-dasharray="2 6"/>
+      <path d="M80 12 L94 66 L148 80 L94 94 L80 148 L66 94 L12 80 L66 66 Z" fill="#0f5c55"/>
+      <path d="M80 12 L94 66 L80 80 Z M148 80 L94 94 L80 80 Z M80 148 L66 94 L80 80 Z M12 80 L66 66 L80 80 Z" fill="#2b7c70"/>
+      <circle cx="80" cy="80" r="20" fill="#c9a24b"/>
+      <rect x="76" y="68" width="8" height="24" rx="2" fill="#ffffff"/><rect x="68" y="76" width="24" height="8" rx="2" fill="#ffffff"/></g>
+<text x="205" y="112" font-family="'Playfair Display', Georgia, 'Times New Roman', serif" font-size="44" font-weight="700" letter-spacing="-0.3"><tspan fill="#0f5c55">Formosa</tspan><tspan fill="#c9a24b">Renew</tspan><tspan fill="#0f5c55">Tour</tspan></text><text x="205" y="142" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="13" letter-spacing="3.2" fill="#6b7a7e">MEDICAL · AESTHETIC · TRAVEL  —  TAIWAN</text>
+</svg>

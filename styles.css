@@ -22,7 +22,7 @@ a { color: var(--jade); }
 .nav { position: sticky; top: 0; z-index: 50; background: rgba(250, 247, 241, .95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
 .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
 .logo { font-size: 1.45rem; font-weight: 700; color: var(--jade-dark); text-decoration: none; }
-.logo span { color: var(--gold); }
+.logo .logo-text span { color: var(--gold); }
 .nav-links { display: flex; gap: 22px; align-items: center; }
 .nav-links a { text-decoration: none; color: var(--ink); font-weight: 500; font-size: .95rem; }
 .nav-links a:hover { color: var(--jade); }
@@ -177,10 +177,13 @@ form .btn:hover { background: #b38d3a; border-color: #b38d3a; }
 .disclaimer { border-top: 1px solid rgba(255,255,255,.12); margin-top: 36px; padding-top: 18px; font-size: .8rem; }
 
 /* MOBILE */
-@media (max-width: 1020px) {
+/* Hamburger menu below 1180px (English nav needs ~1180px in one row) */
+@media (max-width: 1180px) {
   .menu-btn { display: block; }
   .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; background: var(--cream); padding: 18px; border-bottom: 1px solid var(--line); gap: 14px; }
   .nav-links.open { display: flex; }
+}
+@media (max-width: 1020px) {
   .hero { padding: 80px 0 64px; }
   .row, .roles, .footer-inner { grid-template-columns: 1fr; }
   .cards { grid-template-columns: 1fr; }
@@ -200,7 +203,7 @@ html:lang(zh-Hant) .eyebrow, html:lang(zh-Hans) .eyebrow { letter-spacing: .1em;
 html:lang(zh-Hant) .lead, html:lang(zh-Hans) .lead,
 html:lang(zh-Hant) p, html:lang(zh-Hans) p { line-height: 1.8; }
 
-@media (max-width: 1020px) {
+@media (max-width: 1180px) {
   .nav-right { gap: 10px; }
 }
 
@@ -218,3 +221,35 @@ form, .row { grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 1021px) { .row { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } }
 input, select, textarea { min-width: 0; width: 100%; }
 .filters select, .lang-switch select { width: auto; }
+
+/* LOGO MARK (07 Journey Compass) */
+.logo { display: inline-flex; align-items: center; gap: 10px; }
+.logo-mark { width: 40px; height: 40px; flex: none; display: block; }
+.footer .logo-mark { background: var(--cream); border-radius: 50%; padding: 3px; width: 46px; height: 46px; }
+@media (max-width: 520px) {
+  .logo { gap: 7px; }
+  .logo-mark { width: 30px; height: 30px; }
+}
+.nav-links a { white-space: nowrap; }
+.nav-inner { gap: 24px; }
+@media (min-width: 1181px) {
+  .nav-links { gap: 15px; }
+  .nav-links a { font-size: .88rem; }
+  .logo { font-size: 1.3rem; }
+}
+@media (max-width: 520px) {
+  .nav-inner { gap: 8px; }
+}
+@media (max-width: 400px) {
+  .logo { font-size: 1.02rem; gap: 6px; }
+  .logo-mark { width: 26px; height: 26px; }
+}
+/* Very small phones (320px) */
+.ess { grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); }
+.cards { grid-template-columns: repeat(auto-fill, minmax(min(320px, 100%), 1fr)); }
+@media (max-width: 360px) {
+  .logo { font-size: .9rem; gap: 5px; }
+  .logo-mark { width: 22px; height: 22px; }
+  .lang-switch select { max-width: 78px; padding: 4px; }
+  .nav-inner { gap: 4px; }
+}
