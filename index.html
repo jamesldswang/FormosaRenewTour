@@ -15,7 +15,8 @@
       <a href="#top" class="logo">Formosa <span>Renew</span></a>
       <button class="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
       <nav class="nav-links">
-        <a href="#packages">Packages</a>
+        <a href="#packages">Tours</a>
+        <a href="#destinations">Places To Go</a>
         <a href="#why">Why Taiwan</a>
         <a href="#aesthetics">Aesthetics</a>
         <a href="#hospitals">Hospitals</a>
@@ -32,7 +33,7 @@
       <div class="container hero-inner">
         <p class="eyebrow">Medical & Aesthetic Travel · Taiwan</p>
         <h1>Heal, Glow &amp; Explore<br>the Beautiful Island</h1>
-        <p class="lead">Private Taiwan tours built around world-class hospitals and clinics. Health checks, aesthetic treatments and specialist care — with recovery-friendly itineraries through Taipei, Sun Moon Lake and beyond.</p>
+        <p class="lead">Private Taiwan tours — classic sightseeing, food, nature and culture — with the option to add a health check, aesthetic treatment or specialist care at Taiwan's world-class hospitals and clinics.</p>
         <div class="hero-cta">
           <a href="#contact" class="btn">Start Planning Your Journey</a>
           <a href="#packages" class="btn btn-ghost">View Packages</a>
@@ -48,16 +49,42 @@
     <!-- PACKAGES -->
     <section id="packages" class="section">
       <div class="container">
-        <p class="eyebrow">Tour + Treatment</p>
+        <p class="eyebrow">Private Tours</p>
         <h2>Signature Journeys</h2>
-        <p class="section-lead">Every journey is private and tailored. Treatment plans are confirmed by the hospital or clinic after reviewing your records.</p>
+        <p class="section-lead">Travel-only tours or tour + treatment — every journey is private and tailored. Treatment plans are confirmed by the hospital or clinic after reviewing your records.</p>
         <div class="filters" id="pkg-filters">
           <button class="chip active" data-tag="All">All</button>
+          <button class="chip" data-tag="Travel">Travel</button>
           <button class="chip" data-tag="Medical">Medical</button>
           <button class="chip" data-tag="Aesthetic">Aesthetic</button>
           <button class="chip" data-tag="Dental">Dental</button>
         </div>
         <div class="grid cards" id="pkg-grid"></div>
+      </div>
+    </section>
+
+    <!-- DESTINATIONS -->
+    <section id="destinations" class="section alt">
+      <div class="container">
+        <p class="eyebrow">Places To Go</p>
+        <h2>Explore the Beautiful Island</h2>
+        <p class="section-lead">Each destination is rated by travel pace, so we can match sightseeing to your treatment schedule — active trips before, easy trips during recovery.</p>
+        <div class="filters" id="dest-filters">
+          <button class="chip active" data-pace="All">All</button>
+          <button class="chip" data-pace="Easy">🟢 Easy — recovery-friendly</button>
+          <button class="chip" data-pace="Moderate">🟡 Moderate</button>
+          <button class="chip" data-pace="Active">🔴 Active — before treatment</button>
+        </div>
+        <div class="grid dest" id="dest-grid"></div>
+      </div>
+    </section>
+
+    <!-- TRAVEL ESSENTIALS -->
+    <section id="essentials" class="section">
+      <div class="container">
+        <p class="eyebrow">Travel Essentials</p>
+        <h2>Good to Know Before You Go</h2>
+        <div class="grid ess" id="ess-grid"></div>
       </div>
     </section>
 
@@ -172,7 +199,7 @@
       </div>
       <div>
         <h5>Explore</h5>
-        <a href="#packages">Packages</a><a href="#hospitals">Hospitals</a><a href="#faq">FAQ</a>
+        <a href="#packages">Tours</a><a href="#destinations">Places To Go</a><a href="#essentials">Travel Essentials</a><a href="#hospitals">Hospitals</a><a href="#faq">FAQ</a>
       </div>
       <div>
         <h5>Official resources</h5>

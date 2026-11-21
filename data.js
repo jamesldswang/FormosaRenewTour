@@ -3,6 +3,78 @@
 // International Medical Center before going live. Prices are reference figures only.
 
 const PACKAGES = [
+  // ---------- Pure travel tours (treatment optional) ----------
+  {
+    id: "classic",
+    title: "Classic Taiwan Round-Island Tour",
+    days: 8,
+    tag: "Travel",
+    icon: "🏯",
+    summary: "The essential Taiwan loop by high-speed rail and private car: Taipei, Taroko Gorge, Sun Moon Lake, Tainan's temples and Kaohsiung's harbour.",
+    medical: "Add a 1-day executive health check in Taipei on day 2 — results ready before you leave.",
+    itinerary: [
+      "Day 1 — Arrive Taipei, Ximending & Longshan Temple",
+      "Day 2 — Taipei 101, National Palace Museum, Shilin Night Market",
+      "Day 3 — Jiufen & Shifen sky lanterns",
+      "Day 4 — Train to Hualien, Taroko Gorge (open trails only)",
+      "Day 5 — Train to Taichung, Rainbow Village, Fengjia Night Market",
+      "Day 6 — Sun Moon Lake cruise & cable car",
+      "Day 7 — Tainan: Anping, Confucius Temple, street food",
+      "Day 8 — Kaohsiung Pier-2 & Lotus Pond, depart from KHH or return to Taipei"
+    ]
+  },
+  {
+    id: "food",
+    title: "Taiwan Food & Night Market Tour",
+    days: 5,
+    tag: "Travel",
+    icon: "🥟",
+    summary: "Soup dumplings, beef noodles, bubble tea and a dozen night markets — with a cooking class and a local food guide in Taipei and Tainan.",
+    medical: "Pairs well with a dental makeover or non-invasive skin treatment on day 1.",
+    itinerary: [
+      "Day 1 — Arrive, Din Tai Fung & Raohe Night Market",
+      "Day 2 — Morning market walk & Taiwanese cooking class",
+      "Day 3 — Bubble tea workshop, Dadaocheng dried-goods street",
+      "Day 4 — High-speed rail to Tainan: milkfish, coffin bread, shrimp rolls",
+      "Day 5 — Tainan breakfast crawl, return & depart"
+    ]
+  },
+  {
+    id: "nature",
+    title: "Mountains, Gorges & Coast Nature Tour",
+    days: 7,
+    tag: "Travel",
+    icon: "⛰️",
+    summary: "Sunrise over Alishan's sea of clouds, the marble cliffs of the east coast and Kenting's tropical beaches. Best done before any procedure.",
+    medical: "Do the active part first, then finish with a health check or aesthetic treatment in Taipei.",
+    itinerary: [
+      "Day 1 — Arrive, Yangmingshan hot springs",
+      "Day 2 — Hualien east coast & Qingshui Cliffs",
+      "Day 3 — Taroko Gorge trails (subject to park status)",
+      "Day 4 — South-link highway to Taitung, Chishang rice fields",
+      "Day 5 — Kenting National Park beaches",
+      "Day 6 — Alishan forest railway & sunrise",
+      "Day 7 — High-speed rail to Taipei, depart"
+    ]
+  },
+  {
+    id: "culture",
+    title: "Temples, Tea & Culture Tour",
+    days: 6,
+    tag: "Travel",
+    icon: "🍵",
+    summary: "Slow, low-intensity travel: tea ceremonies in Pinglin and Maokong, temple festivals, indigenous culture and old streets. Ideal for recovery days.",
+    medical: "Gentle pace — suitable during recovery from most aesthetic treatments.",
+    itinerary: [
+      "Day 1 — Arrive Taipei, Bao'an Temple & Dihua Street",
+      "Day 2 — Maokong gondola & tea house afternoon",
+      "Day 3 — Pinglin tea village & Yilan hot springs",
+      "Day 4 — Lukang old town & Changhua temples",
+      "Day 5 — Sun Moon Lake Thao culture & Nantou tea farm",
+      "Day 6 — Return to Taipei, depart"
+    ]
+  },
+  // ---------- Treatment + travel ----------
   {
     id: "health-check",
     title: "Executive Health Check & Taipei Highlights",
@@ -100,6 +172,31 @@ const PACKAGES = [
       "After — Recovery stay, follow-up plan with your home doctor"
     ]
   }
+];
+
+// Destinations. pace: "Easy" = fine during recovery, "Moderate", "Active" = do before treatment.
+const DESTINATIONS = [
+  { name: "Taipei", region: "North", pace: "Easy", icon: "🏙️", desc: "Taipei 101, National Palace Museum, night markets, Beitou hot springs — and most partner hospitals." },
+  { name: "Jiufen & Shifen", region: "North", pace: "Moderate", icon: "🏮", desc: "Lantern-lit hillside tea houses, sky lanterns and Shifen Waterfall. Many stairs." },
+  { name: "Yangmingshan", region: "North", pace: "Moderate", icon: "🌋", desc: "Volcanic national park minutes from Taipei: fumaroles, flower seasons, hot springs." },
+  { name: "Yilan", region: "North", pace: "Easy", icon: "♨️", desc: "Jiaoxi hot springs, farm stays and the Lanyang Museum — a relaxing escape 1 hour from Taipei." },
+  { name: "Hualien & Taroko", region: "East", pace: "Active", icon: "🏞️", desc: "Marble gorges and Pacific cliffs. Some Taroko trails remain closed after 2024 — we check status before booking." },
+  { name: "Taitung", region: "East", pace: "Moderate", icon: "🎈", desc: "Rice fields of Chishang, hot-air balloon festival and indigenous culture." },
+  { name: "Sun Moon Lake", region: "Central", pace: "Easy", icon: "🛶", desc: "Taiwan's most famous lake: boat cruises, cycling paths, Thao culture and lakeside resorts." },
+  { name: "Alishan", region: "Central", pace: "Active", icon: "🌄", desc: "Forest railway, giant cypress trees, sunrise over a sea of clouds and high-mountain oolong tea." },
+  { name: "Taichung", region: "Central", pace: "Easy", icon: "🎨", desc: "Rainbow Village, National Theater, Fengjia Night Market and the original bubble tea shop." },
+  { name: "Tainan", region: "South", pace: "Easy", icon: "⛩️", desc: "Taiwan's old capital: 400 years of history, hundreds of temples and the island's best street food." },
+  { name: "Kaohsiung", region: "South", pace: "Easy", icon: "⚓", desc: "Harbour city with Pier-2 Art Center, Lotus Pond and the Buddha Museum." },
+  { name: "Kenting", region: "South", pace: "Moderate", icon: "🏖️", desc: "Tropical beaches, coral reefs and the southern tip of Taiwan. Avoid sun after laser treatments." }
+];
+
+const ESSENTIALS = [
+  { icon: "🛂", title: "Visa", text: "Visa-free entry for 14–90 days for many countries (US, UK, EU, Japan, Korea, Australia and more). Check boca.gov.tw for your nationality." },
+  { icon: "🌤️", title: "Best time to visit", text: "October–April is cool and dry. May–June is plum-rain season; July–September is hot with possible typhoons." },
+  { icon: "🚄", title: "Getting around", text: "High-speed rail links Taipei to Kaohsiung in 1.5 hours. Use an EasyCard for metro, buses and convenience stores." },
+  { icon: "💳", title: "Money", text: "New Taiwan Dollar (NT$). Cards accepted in hotels and hospitals; night markets are cash only. ATMs at every 7-Eleven." },
+  { icon: "📶", title: "Connectivity", text: "Buy a tourist SIM or eSIM at the airport. Free iTaiwan Wi-Fi in many public places." },
+  { icon: "🛡️", title: "Safety", text: "One of Asia's safest destinations with low crime, clean water in hotels and excellent emergency care." }
 ];
 
 // Reference prices from hospital-published self-pay standards (international patient rates).

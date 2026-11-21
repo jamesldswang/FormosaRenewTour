@@ -14,7 +14,7 @@ function renderPackages(tag = "All") {
       </div>
       <div class="card-body">
         <p>${esc(p.summary)}</p>
-        <p class="med"><strong>Treatment:</strong> ${esc(p.medical)}</p>
+        <p class="med ${p.tag === "Travel" ? "addon" : ""}"><strong>${p.tag === "Travel" ? "Optional add-on:" : "Treatment:"}</strong> ${esc(p.medical)}</p>
         <details class="itin">
           <summary>Sample itinerary</summary>
           <ul>${p.itinerary.map((d) => `<li>${esc(d)}</li>`).join("")}</ul>
@@ -36,6 +36,27 @@ $("#pkg-grid").addEventListener("click", (e) => {
   const a = e.target.closest("[data-pkg]");
   if (a) $("#interest").value = a.dataset.pkg;
 });
+
+// ---------- Destinations ----------
+const PACE_DOT = { Easy: "🟢", Moderate: "🟡", Active: "🔴" };
+function renderDestinations(pace = "All") {
+  $("#dest-grid").innerHTML = DESTINATIONS.filter((d) => pace === "All" || d.pace === pace).map((d) => `
+    <div class="d-card">
+      <div class="d-head"><span class="icon">${d.icon}</span><div><h4>${esc(d.name)}</h4><div class="city">${esc(d.region)} Taiwan</div></div></div>
+      <p>${esc(d.desc)}</p>
+      <span class="pace pace-${d.pace.toLowerCase()}">${PACE_DOT[d.pace]} ${esc(d.pace)}</span>
+    </div>`).join("");
+}
+$("#dest-filters").addEventListener("click", (e) => {
+  const btn = e.target.closest(".chip");
+  if (!btn) return;
+  document.querySelectorAll("#dest-filters .chip").forEach((c) => c.classList.toggle("active", c === btn));
+  renderDestinations(btn.dataset.pace);
+});
+
+// ---------- Travel essentials ----------
+$("#ess-grid").innerHTML = ESSENTIALS.map((x) => `
+  <div class="ess-item"><div class="icon">${x.icon}</div><h4>${esc(x.title)}</h4><p>${esc(x.text)}</p></div>`).join("");
 
 // ---------- Why Taiwan ----------
 $("#stats-grid").innerHTML = STRENGTHS.map((s) => `
@@ -104,4 +125,5 @@ document.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("cli
 $("#year").textContent = new Date().getFullYear();
 
 renderPackages();
+renderDestinations();
 renderHospitals();
