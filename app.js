@@ -99,7 +99,7 @@ $("#faq-list").innerHTML = FAQS.map((f) => `
 
 // ---------- Contact form ----------
 // No backend yet: opens the visitor's email app with the enquiry filled in.
-const CONTACT_EMAIL = "hello@formosarenew.com"; // TODO: replace with your real email
+const CONTACT_EMAIL = "hello@formosarenewtour.com"; // TODO: replace with your real email
 $("#interest").innerHTML = PACKAGES.map((p) => `<option value="${p.id}">${esc(p.title)}</option>`).join("") +
   `<option value="other">Something else / not sure yet</option>`;
 
@@ -123,6 +123,7 @@ menuBtn.addEventListener("click", () => {
 });
 document.querySelectorAll(".nav-links a").forEach((a) => a.addEventListener("click", () => $(".nav-links").classList.remove("open")));
 $("#year").textContent = new Date().getFullYear();
+$("#version").textContent = "v" + SITE_VERSION;
 
 renderPackages();
 renderDestinations();

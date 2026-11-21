@@ -1,3 +1,6 @@
+// Site version — single source of truth. Bump this (and CHANGELOG.md) for each release.
+const SITE_VERSION = "1.0.0";
+
 // Site content data. Edit here to update packages, hospitals and prices.
 // IMPORTANT: Verify every hospital's services, accreditation and prices with its
 // International Medical Center before going live. Prices are reference figures only.
